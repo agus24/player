@@ -1,4 +1,5 @@
 var np = new Audio;
+var index = -1;
 function stop() {
     np.pause();
     np.currentTime = 0;
@@ -11,7 +12,12 @@ function pause() {
     np.pause();
 }
 
-function play(index) {
+function setIndexAndPlay(idx) {
+    index = idx;
+    play();
+}
+
+function play() {
     np.pause();
     np.src = music[index];
     np.play();
@@ -24,10 +30,10 @@ function play(index) {
             console.log(music.length)
             console.log(index)
             if(music.length == index) {
-                play(0);
-            } else {
-                play(index);
+                index = 0;
             }
+
+            play();
         }
     }, 1000)
     $('#nowPlaying').empty();

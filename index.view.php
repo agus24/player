@@ -36,7 +36,7 @@
                         <ul class="list list-group">
                             <?php foreach($files as $key => $music): ?>
                                 <?php $music = explode("music/", $music)[1];?>
-                                <li class="list-group-item" data-index="<?=$key?>" onclick="play(<?=$key?>)"><span><?=($key+1).". ".$music?></span></li>
+                                <li class="list-group-item" data-index="<?=$key?>" onclick="setIndexAndPlay(<?=$key?>)"><span><?=($key+1).". ".$music?></span></li>
                             <?php endforeach; ?>
                         </ul>
                     </div>
