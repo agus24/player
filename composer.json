@@ -1,0 +1,10 @@
+{
+    "name": "gustiawanouwawi/music",
+    "require": {
+        "symfony/filesystem": "^3.3",
+        "symfony/finder": "^3.3"
+    },
+    "autoload" : {
+        "classmap" : ["./"]
+    }
+}
