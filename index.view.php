@@ -21,9 +21,11 @@
         <div class="col-md-12 text-center">
             <b><span id="nowPlaying">&nbsp;</span></b>
             <h4 id="time">0/0</h4>
-            <button onclick="resume()" class="btn btn-primary">Resume/play</button>
-            <button onclick="pause()" class="btn btn-default">Pause</button>
+            <button onclick="prev()" class="btn btn-default">Prev</button>
+            <button onclick="resume()" class="btn btn-success">Resume/play</button>
+            <button onclick="pause()" class="btn btn-primary">Pause</button>
             <button class="btn btn-danger" onclick="stop()">Stop</button>
+            <button class="btn btn-default" onclick="next()">Next</button>
         </div>
         <div class="row">
             <div class="col-md-12">

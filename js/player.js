@@ -12,6 +12,18 @@ function pause() {
     np.pause();
 }
 
+function next() {
+    stop();
+    index++;
+    play();
+}
+
+function prev() {
+    stop();
+    index--;
+    play();
+}
+
 function setIndexAndPlay(idx) {
     index = idx;
     play();
