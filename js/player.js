@@ -1,5 +1,6 @@
 var np = new Audio;
 var index = -1;
+var shuffle = false;
 
 function generateList() {
     var html = "";
@@ -49,9 +50,15 @@ function play() {
     setInterval(function() {
         var duration = parseTime(np.duration);
         var currentTime = parseTime(np.currentTime);
+        var percentage = np.currentTime / np.duration * 100;
         $('#time').text(currentTime+"/"+duration);
         if(parseInt(np.currentTime) == parseInt(np.duration)) {
-            index++;
+            if(shuffle) {
+                index = shuffleIndex();
+            }
+            else {
+                index++;
+            }
             console.log(music.length)
             console.log(index)
             if(music.length == index) {
@@ -60,6 +67,8 @@ function play() {
 
             play();
         }
+
+        $('#range').val(percentage)
     }, 1000)
     $('#nowPlaying').empty();
     var text = music[index].split('music/')[1];
@@ -79,4 +88,28 @@ function parseTime(audio) {
     secs = '0' + String(secs);
     }
     return (mins + ':' + secs);
+}
+
+$('#range').change(function() {
+    var value = $(this).val();
+    np.currentTime = np.duration * value / 100;
+});
+
+function shuffleIndex()
+{
+    var rand = Math.floor(Math.random() * (25 - 0) + 0);
+
+    if(rand == index) {
+        shuffleIndex();
+    }
+    else {
+        return rand;
+    }
+}
+function shuffleToggle() {
+    if(shuffle) {
+        shuffle = false;
+    } else {
+        shuffle = true;
+    }
 }
