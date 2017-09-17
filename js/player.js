@@ -1,5 +1,18 @@
 var np = new Audio;
 var index = -1;
+
+function generateList() {
+    var html = "";
+    $.each(music,function(key,music) {
+        music = music.split('music/')[1];
+        html += '<li class="list-group-item" data-index="'+key+'" onclick="setIndexAndPlay('+key+')"><span>'+(parseInt(key)+1)+'. '+music+'</span></li>';
+    });
+    $('#playlist').empty();
+    $('#playlist').append(html);
+}
+
+generateList();
+
 function stop() {
     np.pause();
     np.currentTime = 0;
